@@ -87,7 +87,7 @@ public class AddPlay extends JPanel implements ActionListener{
 					affiliate=teamName[affi.getSelectedIndex()];
 					String[] info= {affiliate,txtName.getText()};
 					DB.addInfo(info,0);
-					
+					reload(this);
 					DB.close();
 					txtName.setText(null);
 		
