@@ -1,0 +1,41 @@
+package package1;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+
+public class FileManage {
+
+	static File file;
+
+	//新規ファイル作成
+	public static void createFile(String str) {
+
+		File file =new File("C:\\Users\\volle\\OneDrive\\ScoreSheetEditor\\"+str+".csv");
+
+		try {
+			file.createNewFile();
+		}catch(IOException e) {
+
+		}
+	}
+
+
+	//ファイルを選択させてそのパスを取得
+	public static String chooseFile(JFrame flame) {
+
+		String str="";
+
+		JFileChooser fc=new JFileChooser();
+		fc.setSelectedFile(new File("C:\\Users\\volle\\OneDrive\\ScoreSheetEditor\\2020.csv"));
+		int selected = fc.showOpenDialog(flame);
+	    if (selected == JFileChooser.APPROVE_OPTION){
+	      str=fc.getSelectedFile().getPath();
+	    }
+
+
+		return str;
+	}
+}
